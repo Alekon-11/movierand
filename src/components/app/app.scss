@@ -1,0 +1,11 @@
+@import '../../style/variables.scss';
+
+.app{
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: $main-color;
+}
