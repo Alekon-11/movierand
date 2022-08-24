@@ -19,8 +19,26 @@ class KinopoiskService{
         return res.json();
     }
 
-    getAllMovie = () => {
-        return this.getRequest(`${this._apiBase}api/v2.2/films`);
+    getAllMovie = async () => {
+        const res = await this.getRequest(`${this._apiBase}api/v2.2/films/`);
+        return this._trasformResponse(res);
+    }
+
+    getOneMovie = async (id) => {
+        const res = await this.getRequest(`${this._apiBase}api/v2.2/films/${id}`);
+        return this._trasformResponse(res);
+    }
+
+    _trasformResponse = (res) => {
+        return {
+            description: res.description,
+            posterUrl: res.posterUrl,
+            genres: res.genres.map(item => item.genre),
+            rate: res.ratingKinopoisk,
+            filmLength: res.filmLength,
+            id: res.kinopoiskId,
+            name: res.nameRu
+        }
     }
 }
 
