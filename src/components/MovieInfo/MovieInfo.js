@@ -48,7 +48,7 @@ const View = (props) => {
         <div className="movie-info">
             <div className="movie-info__poster"><img src={poster} alt={name ? name : nameOrig} /></div>
             <h2 className="movie-info__name">{name ? name : nameOrig}</h2>
-            <h4 className="movie-info__name-original">{nameOrig} / <span>{year}</span></h4>
+            <h4 className="movie-info__name-original">{nameOrig} / <span>{year} г.</span></h4>
             <h6 className="movie-info__countries">{countries ? countries.join(', ') : null}</h6>
             <div className="movie-info__genres">{ genres ? genres.join(', ') : null}</div>
             <div className="movie-info__length">{filmLength} мин.</div>

@@ -5,7 +5,7 @@
     position: relative;
     padding-left: 320px;
     min-height: 400px; 
-    @include maxWidth(700px);
+    @include maxWidth(750px);
     color: $light-color;
     text-align: left;
     line-height: 1;
@@ -52,7 +52,7 @@
 
     &__genres{
         font-weight: 400;
-        margin-top: 20px;
+        margin-top: 15px;
     }
 
     &__length{
