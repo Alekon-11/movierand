@@ -19,9 +19,8 @@ class KinopoiskService{
         return res.json();
     }
 
-    getAllMovie = async () => {
-        const res = await this.getRequest(`${this._apiBase}api/v2.2/films/`);
-        return this._trasformResponse(res);
+    getAllMovie = () => {
+        return this.getRequest(`${this._apiBase}api/v2.2/films/`);
     }
 
     getOneMovie = async (id) => {
@@ -29,15 +28,24 @@ class KinopoiskService{
         return this._trasformResponse(res);
     }
 
+    // getOneMovie = (id) => {
+    //     return this.getRequest(`${this._apiBase}api/v2.2/films/${id}`);
+    // }
+
     _trasformResponse = (res) => {
         return {
+            name: res.nameRu,
+            nameOrig: res.nameOriginal,
             description: res.description,
-            posterUrl: res.posterUrl,
-            genres: res.genres.map(item => item.genre),
+            year: res.year,
             rate: res.ratingKinopoisk,
+            rateImdb: res.ratingImdb,
+            poster: res.posterUrl,
+            posterSmall: res.posterUrlPreview,
+            genres: res.genres.map(item => item.genre),
             filmLength: res.filmLength,
             id: res.kinopoiskId,
-            name: res.nameRu
+            countries: res.countries.map(item => item.country)
         }
     }
 }

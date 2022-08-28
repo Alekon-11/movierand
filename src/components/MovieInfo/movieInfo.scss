@@ -1,0 +1,84 @@
+@import '../../style/variables.scss';
+@import '../../style/mixins.scss';
+
+.movie-info{
+    position: relative;
+    padding-left: 320px;
+    min-height: 400px; 
+    @include maxWidth(700px);
+    color: $light-color;
+    text-align: left;
+    line-height: 1;
+    &__poster{
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        @include maxWidth(300px);
+        height: 400px;
+        background-color: $items-bg-color;
+        border-radius: $borderRadius;
+        overflow: hidden;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__name{
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1;
+    }
+    &__name-original{
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.3;
+        color: $items-bg-color;
+        margin-top: 5px;
+        span{
+            font-weight: 700;
+            font-size: 16px;
+            color: $special-color;
+        }
+    }
+
+    &__countries{
+        font-size: 14px;
+        font-weight: 400;
+        margin-top: 5px;
+    }
+
+    &__genres{
+        font-weight: 400;
+        margin-top: 20px;
+    }
+
+    &__length{
+        font-weight: 700;
+        margin-top: 15px;
+    }
+
+    &__rate{
+        display: flex;
+        align-items: center;
+
+        color: $special-color;
+        font-weight: 700;
+        font-size: 24px;
+        margin-top: 15px;
+        img{
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+        }
+    }
+
+    &__description{
+        color: $items-bg-color;
+        margin-top: 15px;
+        line-height: 1.2;
+        font-weight: 400;
+    }
+}

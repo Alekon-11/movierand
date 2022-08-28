@@ -1,0 +1,24 @@
+.test{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 300px;
+    color: #fffffe;
+
+    &__btn{
+        padding: 5px 20px;
+        font-size: 20px;
+        font-weight: 700;
+        color: #fffffe;
+        background-color: rgb(86, 123, 235);
+        cursor: pointer;
+        &:active{
+            background-color: rgb(61, 199, 204);
+        }
+    }
+
+    &__text{
+        font-weight: 700;
+        font-size: 24px;
+    }
+}
