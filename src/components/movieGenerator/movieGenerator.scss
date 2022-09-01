@@ -1,3 +1,4 @@
+@import '../../style/mixins.scss';
 @import '../../style/variables.scss';
 
 .movie-generator{
@@ -8,10 +9,8 @@
         border: 5px solid $items-bg-color;
         border-radius: $borderRadius;
 
-        display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @include flexDef(center);
     }
     &__number{
         font-size: 64px;

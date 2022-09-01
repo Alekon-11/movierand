@@ -1,24 +1,26 @@
 @import '../../style/variables.scss';
+@import '../../style/mixins.scss';
 
 .error{
     color: $items-bg-color;
     font-size: 18px;
     font-weight: 700;
+    @include flexDef(center);
+    flex-direction: column;
+
     &::before{
         content: ':(';
-        margin: 0 auto;
+        display: block;
+        margin-bottom: 15px;
         width: 110px;
         height: 110px;
         border-radius: 50%;
         border: 10px solid $special-color;
         color: $special-color;
 
-        display: grid;
-
         font-size: 68px;
         font-weight: 700;
 
         transform: rotate(90deg);
-        margin-bottom: 15px;
     }
 }

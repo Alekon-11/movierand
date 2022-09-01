@@ -1,18 +1,16 @@
+@import '../../style/mixins.scss';
 @import '../../style/variables.scss';
 
 .header{
     width: 100%;
     background-color: $header-color;
     &__wrapper{
-        max-width: 1230px;
-        width: 100%;
+        @include maxWidth(1230px);
         margin: 0 auto;
         padding: 0 15px;
         min-height: 80px;
 
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include flexDef(space-between);
     }
 
     &__logo{

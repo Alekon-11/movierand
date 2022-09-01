@@ -1,11 +1,11 @@
+@import '../../style/mixins.scss';
 @import '../../style/variables.scss';
 
 .app{
     min-height: 100vh;
     overflow: hidden;
-    display: flex;
+    @include flexDef(unset);
     flex-direction: column;
-    align-items: center;
 
     background-color: $main-color;
 }

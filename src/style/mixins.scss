@@ -2,3 +2,9 @@
     max-width: $px;
     width: 100%;
 }
+
+@mixin flexDef($jc){
+    display: flex;
+    justify-content: $jc;
+    align-items: center;
+}

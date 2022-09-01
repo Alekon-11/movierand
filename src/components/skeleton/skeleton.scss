@@ -1,11 +1,11 @@
+@import '../../style/mixins.scss';
 @import '../../style/variables.scss';
 
 .skeleton{
     position: relative;
     padding-left: 320px;
     min-height: 400px;
-    max-width: 750px;
-    width: 100%;
+    @include maxWidth(750px);
 
     &__poster,
     &__name,
