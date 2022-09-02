@@ -5,15 +5,14 @@ import Skeleton from '../../components/skeleton/Skeleton';
 
 import './movieInfo.scss';
 import star from '../../resources/star.png';
+import imgError from '../../resources/img-error.jpg';
 
 const MovieInfo = (props) => {
     const movieDBService = new MovieDBService()
-
     const [movieInfo, setMovieInfo] = useState(0);
-    const [error, setError] = useState(false);
     const [skeleton, setSkeleton] = useState(true);
 
-    // const loading = skeleton ? <Skeleton /> : <View movieInfo={movieInfo} />;
+    const content = skeleton ? <Skeleton /> : <View movieInfo={movieInfo} />;
 
     useEffect(() => {
         onMovieLoading();
@@ -26,10 +25,16 @@ const MovieInfo = (props) => {
     }
 
     function onError(){
-        setError(true);
+        setSkeleton(true);
     }
 
     function onMovieLoading(){
+        if(!props.id){
+            return;
+        }
+
+        setSkeleton(true);
+
         movieDBService.getOneMovie(props.id)
         .then(onLoaded)
         .catch(onError);
@@ -37,13 +42,15 @@ const MovieInfo = (props) => {
 
     return(
         <>
-            <View movieInfo={movieInfo} />
+            {content}
         </>
     )
 }
 
 const View = (props) => {
     const {name, nameOrig, description, year, rate, poster, genres, filmLength, countries} = props.movieInfo;
+
+    const movieTime = `${Math.floor(+filmLength / 60)} ч. ${(+filmLength % 60) < 10 ? `0${+filmLength % 60}` : +filmLength % 60} мин.`;
 
     return(
         <div className="movie-info">
@@ -52,8 +59,7 @@ const View = (props) => {
             <h4 className="movie-info__name-original">{nameOrig} / <span>{year} г.</span></h4>
             <h6 className="movie-info__countries">{countries ? countries.join(', ') : null}</h6>
             <div className="movie-info__genres">{ genres ? genres.join(', ') : null}</div>
-            {/* <div className="movie-info__length">{filmLength} мин.</div> */}
-            <div className="movie-info__length">{Math.floor(+filmLength / 60)} ч. {Math.floor(+filmLength % 60)} мин.</div>
+            <div className="movie-info__length">{movieTime}</div>
             <div className="movie-info__rate">
                 <img src={star} alt="rate star" />
                 {rate} <span>IMDb</span>

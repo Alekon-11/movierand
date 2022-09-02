@@ -6,7 +6,7 @@ import ErrorBlock from '../errorBlock/ErrorBlock';
 
 import './movieGenerator.scss';
 
-const MovieGenerator = ({setMovieId}) => {
+const MovieGenerator = (props) => {
     const movieDBService = new MovieDBService();
 
     const [movieInfo, setMovieInfo] = useState(0);
@@ -21,11 +21,9 @@ const MovieGenerator = ({setMovieId}) => {
         onMovieLoading();
     },[]);
 
-    function onLoaded(data){
+    function onLoaded({id, name}){
         setSpinner(false);
-        setMovieInfo(data);
-
-        setMovieId(data.id);
+        setMovieInfo({id, name});
     }
 
     function onError(){
@@ -35,8 +33,10 @@ const MovieGenerator = ({setMovieId}) => {
 
     function onMovieLoading(){
         const id = +(Math.random() * (1000 - 1) + 1).toFixed();
+
         setSpinner(true);
         setError(false);
+        props.getMovieId(id);
 
         movieDBService.getOneMovie(id)
         .then(onLoaded)

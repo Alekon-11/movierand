@@ -7,7 +7,7 @@ import './mainPage.scss';
 const MainPage = () => {
     const [id, setId] = useState(0);
 
-    function setMovieId(id){
+    function getMovieId(id){
         setId(id);
     }
 
@@ -16,7 +16,7 @@ const MainPage = () => {
             <div className="section__title">Случайный фильм</div>
             <div className="section__wrapper">
                 <MovieInfo id={id} />
-                <MovieGenerator setMovieId={setMovieId}/>
+                <MovieGenerator getMovieId={getMovieId}/>
             </div>
         </section>
     )
