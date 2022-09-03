@@ -12,6 +12,9 @@ const MovieGenerator = (props) => {
     const [movieInfo, setMovieInfo] = useState(0);
     const [spinner, setSpinner] = useState(true);
     const [error, setError] = useState(false);
+    const [min, setMin] = useState(1);
+    const [max, setMax] = useState(1000);
+    const [range, setRange] = useState(false)
 
     const loading = spinner ? <Spinner /> : null;
     const content = !(spinner || error) ? <View movieInfo={movieInfo} /> : null;
@@ -20,6 +23,21 @@ const MovieGenerator = (props) => {
     useEffect(() => {
         onMovieLoading();
     },[]);
+
+    function onValue(e){
+        if(e.target.name === 'max'){
+            setMax(+e.target.value);
+            return;
+        }
+        if(e.target.name === 'min'){
+            setMin(+e.target.value);
+            return;
+        }
+    }
+
+    function onCheckBox(e){
+        setRange(() => e.target.checked);
+    }
 
     function onLoaded({id, name}){
         setSpinner(false);
@@ -32,7 +50,7 @@ const MovieGenerator = (props) => {
     }
 
     function onMovieLoading(){
-        const id = +(Math.random() * (1000 - 1) + 1).toFixed();
+        const id = +(Math.random() * (max - min) + min).toFixed();
 
         setSpinner(true);
         setError(false);
@@ -48,6 +66,23 @@ const MovieGenerator = (props) => {
                 {loading}
                 {content}
                 {errorMessage}
+            </div>
+            <div className="movie-generator__settings">
+                <div className="movie-generator__inputs">
+                    <input className='input'
+                           onChange={onValue} 
+                           type="number" 
+                           name="min"
+                           disabled={range} 
+                           value={min}/>
+                    <input className='input'
+                           onChange={onValue} 
+                           type="number" 
+                           name="max"
+                           disabled={range} 
+                           value={max}/>
+                </div>
+                <input onChange={onCheckBox} type="checkbox" className='movie-generator__checkbox' name="range" />
             </div>
             <button onClick={onMovieLoading} className="btn">сгенерировать</button>
         </div>
