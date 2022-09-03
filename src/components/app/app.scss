@@ -34,16 +34,12 @@
 
 .btn{
     margin-top: 15px;
-    border: 0;
     height: 40px;
     padding: 0 30px;
     border-radius: $borderRadius;
     background-color: $btn-color;
     text-transform: uppercase;
-    color: $light-color;
     font-weight: 700;
-    font-family: inherit;
-    cursor: pointer;
     transition: .2s linear;
     &:focus{
         outline: 0;

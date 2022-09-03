@@ -20,7 +20,17 @@ ol,li{
   padding: 0;
 }
 
-
+button{
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  color: $light-color;
+  font-size: inherit;
+  font-family: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
 
 ul{
   font-size: 0;

@@ -83,9 +83,29 @@
     }
 
     &__description{
-        color: $items-bg-color;
+        position: relative;
         margin-top: 15px;
-        line-height: 1.2;
-        font-weight: 400;
+        overflow: hidden;
+        height: 215px;
+        transition: .3s ease-in-out;
+        p{
+            color: $items-bg-color;
+            line-height: 1.2;
+            font-weight: 400;
+        }
+        button{
+            text-align: left;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            font-size: 18px;
+            transition: .2s linear;
+            background-color: $main-color;
+            &:hover,
+            &:focus{
+                color: $btn-color;
+            }
+        }
     }
 }
