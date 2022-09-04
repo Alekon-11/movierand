@@ -4,7 +4,7 @@
 .skeleton{
     position: relative;
     padding-left: 320px;
-    min-height: 400px;
+    height: 400px;
     @include maxWidth(750px);
 
     &__poster,

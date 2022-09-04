@@ -14,7 +14,8 @@ const MovieGenerator = (props) => {
     const [error, setError] = useState(false);
     const [min, setMin] = useState(1);
     const [max, setMax] = useState(1000);
-    const [range, setRange] = useState(false)
+    const [range, setRange] = useState(false);
+    const [userList, setUserList] = useState(false);
 
     const loading = spinner ? <Spinner /> : null;
     const content = !(spinner || error) ? <View movieInfo={movieInfo} /> : null;
@@ -25,18 +26,26 @@ const MovieGenerator = (props) => {
     },[]);
 
     function onValue(e){
+        let value = +e.target.value.replace(/\D/ig,'');
         if(e.target.name === 'max'){
-            setMax(+e.target.value);
+            setMax(+value);
             return;
         }
         if(e.target.name === 'min'){
-            setMin(+e.target.value);
+            setMin(+value);
             return;
         }
     }
 
-    function onCheckBox(e){
-        setRange(() => e.target.checked);
+    function onChecked(e){
+        if(e.target.name === 'range'){
+            setRange(() => e.target.checked);
+            return;
+        }
+        if(e.target.name === 'userList'){
+            setUserList(() => e.target.checked);
+            return;
+        }
     }
 
     function onLoaded({id, name}){
@@ -71,18 +80,29 @@ const MovieGenerator = (props) => {
                 <div className="movie-generator__inputs">
                     <input className='input'
                            onChange={onValue} 
-                           type="number" 
+                           type="text" 
                            name="min"
-                           disabled={range} 
-                           value={min}/>
+                           disabled={!range} 
+                           value={min}
+                           maxLength="4"/>
                     <input className='input'
                            onChange={onValue} 
-                           type="number" 
+                           type="text" 
                            name="max"
-                           disabled={range} 
-                           value={max}/>
+                           disabled={!range} 
+                           value={max}
+                           maxLength="4"/>
                 </div>
-                <input onChange={onCheckBox} type="checkbox" className='movie-generator__checkbox' name="range" />
+                <label className='check'>
+                    <input className='check__input' onChange={onChecked} type="checkbox" name="range" checked={range}/>
+                    <span className="check__box"></span>
+                    Диапазон
+                </label>
+                <label className='check'>
+                    <input className='check__input' onChange={onChecked} type="checkbox" name="userList" checked={userList}/>
+                    <span className="check__box"></span>
+                    Из вашего списка
+                </label>
             </div>
             <button onClick={onMovieLoading} className="btn">сгенерировать</button>
         </div>

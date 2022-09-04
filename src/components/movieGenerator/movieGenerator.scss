@@ -17,6 +17,11 @@
         font-size: 64px;
         font-weight: 700;
         color: $special-color;
+
+        padding: 0px 10px;
+        box-shadow: 5px 5px 0px 5px $header-color,
+                     -5px -5px 0px 5px $btn-color;
+        border-radius: 10px;
     }
 
     &__name{
@@ -50,12 +55,65 @@
     font-weight: 700;
     color: $main-color;
     &:focus{
-        box-shadow: 0px 0px 15px $btn-color;
+        box-shadow: 0px 0px 10px 2px $btn-color;
         outline: 0;
     }
     &:disabled{
         color: $items-bg-color;
         background-color: rgb(255, 255, 254, .9);
+    }
+}
+
+.check{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    color: $items-bg-color;
+    font-weight: 400;
+    &__input{
+        appearance: none;
+
+        // checked
+        &:checked + .check__box{
+            border-color: $btn-color;
+        }
+        &:checked + .check__box::before{
+            left: 32px;
+            background-color: $btn-color;
+        }
+
+        // focus
+        &:focus + .check__box{
+            box-shadow: 0px 0px 10px 2px $light-color;    
+        }
+        &:checked:focus + .check__box{
+            box-shadow: 0px 0px 10px 2px $btn-color;    
+        } 
+
+    }
+    &__box{
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 30px;
+        border: 3px solid $items-bg-color;
+        border-radius: 20px;
+        transition: .2s linear;
+        margin-right: 5px;
+        &::before{
+            content: '';
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-color: $items-bg-color;
+            border-radius: 50%;
+
+            position: absolute;
+            top: 50%;
+            left: 2px;
+            transform: translateY(-50%);
+            transition: .2s linear;
+        }
     }
 }
 

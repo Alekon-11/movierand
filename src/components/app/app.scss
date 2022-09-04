@@ -19,6 +19,7 @@
 
 .section{
     padding-top: 60px;
+    padding-bottom: 60px;
     text-align: center;
     &__title{
         font-size: 40px;
@@ -43,7 +44,7 @@
     transition: .2s linear;
     &:focus{
         outline: 0;
-        box-shadow: 0px 0px 15px $btn-color;
+        box-shadow: 0px 0px 10px 2px $btn-color;
         outline-offset: 3px;
     }
     &:active{

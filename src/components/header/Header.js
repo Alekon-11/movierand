@@ -1,7 +1,7 @@
 import './header.scss'
-import logo from '../../resources/movierand-logo.png';
+import logo from '../../resources/movierand-logo-min.png';
 
-const Header = () => {
+const Header = ({onSwitchPage}) => {
     return(
         <header className="header">
             <div className="header__wrapper">
@@ -9,8 +9,12 @@ const Header = () => {
 
                 <nav className="header__nav">
                     <ul className="header__list">
-                        <li className="header__page"><a href="#">Главная</a></li> 
-                        <li className="header__page"><a href="#">Список</a></li>
+                        <li data-page='main' className="header__page" onClick={onSwitchPage}>
+                            <a href="#">Главная</a>
+                        </li> 
+                        <li data-page='listings' className="header__page" onClick={onSwitchPage}>
+                            <a href="#">Списки</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
