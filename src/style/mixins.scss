@@ -8,3 +8,14 @@
     justify-content: $jc;
     align-items: center;
 }
+
+@mixin visuallyHidden(){
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    border: 0;
+    padding: 0;
+    margin: 0;
+}

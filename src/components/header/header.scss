@@ -35,6 +35,16 @@
                 margin-right: 0;
             }
 
+            &.page-selected a{
+                outline: 0;
+                color: $light-color;
+            }
+
+            &.page-selected a::before{
+                left: 0;
+                opacity: 1;
+            }
+
             a{ 
                 position: relative;
                 display: inline-block;

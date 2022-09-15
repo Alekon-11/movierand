@@ -19,8 +19,8 @@
         color: $special-color;
 
         padding: 0px 10px;
-        box-shadow: 5px 5px 0px 5px $header-color,
-                     -5px -5px 0px 5px $btn-color;
+        box-shadow: 5px 5px 5px 5px $header-color,
+                     -5px -5px 5px 5px $btn-color;
         border-radius: 10px;
     }
 
@@ -47,6 +47,10 @@
             padding: 0 10px;
         }
     }
+
+    .btn{
+        margin-top: 15px;
+    }
 }
 
 .input{
@@ -72,7 +76,7 @@
     font-weight: 400;
     &__input{
         appearance: none;
-
+        
         // checked
         &:checked + .check__box{
             border-color: $btn-color;
@@ -100,6 +104,7 @@
         border-radius: 20px;
         transition: .2s linear;
         margin-right: 5px;
+        cursor: pointer;
         &::before{
             content: '';
             display: block;

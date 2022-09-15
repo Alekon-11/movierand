@@ -20,7 +20,7 @@ const App = () => {
 
     return (
         <div className="app">
-            <Header onSwitchPage={onSwitchPage}/>
+            <Header onSwitchPage={onSwitchPage} page={page}/>
             <div className="container">
                 {mainPage}
                 {listingssPage}

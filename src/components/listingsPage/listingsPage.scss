@@ -1,0 +1,8 @@
+.listings-page{
+    &__wrapper{
+        width: 100%;
+        display: grid;
+        grid-template-columns: minmax(700px, 1fr) minmax(200px, 320px);
+        gap: 30px;
+    }
+}
