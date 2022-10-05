@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/movierand/static/css/main.61daffe6.css",
+    "main.js": "/movierand/static/js/main.c3a59a3c.js",
+    "index.html": "/movierand/index.html",
+    "main.61daffe6.css.map": "/movierand/static/css/main.61daffe6.css.map",
+    "main.c3a59a3c.js.map": "/movierand/static/js/main.c3a59a3c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.61daffe6.css",
+    "static/js/main.c3a59a3c.js"
+  ]
+}
